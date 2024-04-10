@@ -42,8 +42,8 @@ const config = {
     require.resolve("./src/custom-js.ts"),
   ],
   i18n: {
-    defaultLocale: "default",
-    locales: ["en-us", "zh-cn", "default"],
+    defaultLocale: "zh-cn",
+    locales: ["en-us", "zh-cn"],
     localeConfigs: {
       "en-us": {
         label: "En",
@@ -107,40 +107,35 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: ({ docPath, locale }) => {
-            return `https://github.com/spring-cloud-alibaba-group/spring-cloud-alibaba-group.github.io/blob/main/i18n/${locale}/docusaurus-plugin-content-docs/current/${docPath}`;
+          editUrl: ({locale, version, docPath }) => {
+            version = version === "current" ? "current" : "version-" + version
+            return `https://github.com/spring-cloud-alibaba-group/spring-cloud-alibaba-group.github.io/blob/master/i18n/${locale}/docusaurus-plugin-content-docs/${version}/${docPath}`;
           },
-          lastVersion: "2022.0.0.0",
+          
+          // last version 
+          lastVersion: "2023.0.0.0-RC1",
           versions: {
             "2.2.10-RC1": {
               banner: "none",
             },
+            "2023.0.0.0-RC1": {
+              path: "/2023.0.0.0-RC1",
+              banner: "none",
+            },
             "2022.0.0.0": {
-              // Add routing path configuration to solve the release notes mapping problem when the version is released
-              path: "/2022.0.0.0",
               banner: "none",
             },
             "2021.0.5.0": {
               banner: "none",
             },
           },
-          // Set the version that needs to be displayed in the documentation
-          // onlyIncludeVersions: [
-          //   "2022.0.0.0",
-          //   "2021.0.5.0",
-          //   "2021.0.4.0",
-          //   "2021.0.1.0",
-          //   "2.2.10-RC1",
-          //   "2.2.9.RELEASE",
-          //   "2.2.8.RELEASE"
-          // ],
         },
         blog: {
           showReadingTime: true,
           blogSidebarTitle: "全部博文",
           blogSidebarCount: "ALL",
           editUrl: ({ blogPath, locale }) => {
-            return `https://github.com/spring-cloud-alibaba-group/spring-cloud-alibaba-group.github.io/blob/main/i18n/${locale}/docusaurus-plugin-content-blog/${blogPath}`;
+            return `https://github.com/spring-cloud-alibaba-group/spring-cloud-alibaba-group.github.io/blob/master/i18n/${locale}/docusaurus-plugin-content-blog/${blogPath}`;
           },
         },
         theme: {

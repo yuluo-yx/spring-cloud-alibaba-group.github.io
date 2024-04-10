@@ -12,7 +12,7 @@ description: Nacos Quick Start.
 
 Nacos Server 启动成功之后，浏览器地址栏输入 `http://ip:8848/nacos` 查看 Nacos 控制台（默认账号名和密码为 nacos/nacos）：
 
-![nacos-server-start](https://sca-storage.oss-cn-hangzhou.aliyuncs.com/website/docs/zh/nacos/nacos-server-start.png)
+![nacos-server-start](../../../../../../static/img/user/quickstart/nacos/nacos-config-dashboard.png)
 
 关于更多的 Nacos Server 版本，可以从 Nacos 官方 [release](https://github.com/alibaba/nacos/releases) 页面查看。
 
@@ -40,7 +40,7 @@ Nacos Server 启动成功之后，浏览器地址栏输入 `http://ip:8848/nacos
          serverAddr: 127.0.0.1:8848
      config:
        import:
-         - nacos:nacos-config-example.properties?refresh=true
+         - nacos:nacos-config-example.properties?refreshEnabled=true
    ```
 
 3. 完成上述两步后，应用会从 Nacos Server 中获取相应的配置，并添加在 Spring Environment 的 PropertySources 中。假设我们通过 Nacos 作为配置中心保存应用服务的部分配置，有以下几种方式实现：
